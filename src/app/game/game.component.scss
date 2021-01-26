@@ -1,0 +1,42 @@
+.main-container {
+    .gameboard {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-top: 8%;
+        align-items: center;
+        justify-content: space-between;
+
+        .players {
+
+            .mat-body-1, .mat-body-2 {
+                font-weight: 700;
+                margin: 0 0 10px 0;
+            }
+        }
+
+        
+        .player-one {
+            margin-left: 60px;
+            color: rgb(7, 245, 7);
+        }
+
+        .player-two {
+            margin-right: 60px;
+            color: rgb(247, 47, 47);
+        }
+
+        .gamefield {
+            display: flex;
+            align-items: center;
+            max-width: 300px;
+            max-height: 300px;
+            .subfield{
+                cursor: pointer;
+                height: 100px;
+                width: 100px;
+                border: 3px solid #fff;
+            }
+        }
+    }
+}
