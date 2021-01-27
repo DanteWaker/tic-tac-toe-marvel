@@ -16,12 +16,40 @@ export class GameComponent implements OnInit {
 
   startGame(): void {
     this.game.gameStart();
+    const currentPlayer = 'Current turn: Player: ' + this.game.currentTurn;
+    const information= document.querySelector('.current-status');
+    information.innerHTML = currentPlayer;
   }
 
   async clickSubField( subfield: any): Promise<void> {
     if (this.game.gameStatus === 1) {
       const position = subfield.currentTarget.getAttribute('position');
       console.log(position);
+      this.game.setField(position, this.game.currentTurn);
+      const color = this.game.getPlayerColorClass();
+      subfield.currentTarget.classList.add(color);
+    }
+
+    await this.game.checkGameEndWinner().then((end: boolean) => {
+      if (this.game.gameStatus === 0 && end) {
+        const information = document.querySelector('.current-status');
+        information.innerHTML = "The winner is player " + this.game.currentTurn;
+      }
+    });
+
+    await this.game.checkGameEndFull().then((end: boolean) => {
+      if (this.game.gameStatus === 0 && end) {
+        const information = document.querySelector('.current-status');
+        information.innerHTML = "No winner, draw";
+      }
+    });
+
+    this.game.changePlayer();
+
+    if (this.game.gameStatus === 1) {
+      const currentPlayer = 'Current turn: Player: ' + this.game.currentTurn;
+      const information = document.querySelector('.current-status');
+      information.innerHTML = currentPlayer;
     }
 
   }

@@ -6,19 +6,32 @@
     </div>
 
     <div class="field">
-        <p class="text">
+        <p class="current-status mat-display-1">
             Start the game on the button
         </p>
     </div>
 
     <div class="field" style="width: 100%">
-        <button (click)="startGame()" position="0" mat-raised-button color="accent" class="start-game-button">Start Game Now!</button>
+        <button 
+        (click)="startGame()" 
+        position="0" 
+        mat-flat-button color="warn" 
+        class="start-game-button">Start Game Now!</button>
+
+    <!--  
+        <button 
+        (click)="startGame()" 
+        position="0" 
+        mat-flat-button color="primary" 
+        *ngIf="this.game.gameStatus === 1"  
+        class="start-game-button">Restart!</button> 
+    -->
     </div>
 
 
-    <div class="gameboard">
+    <div *ngIf="this.game.gameStatus === 1" class="gameboard">
 
-        <div class="players player-one">
+        <div class="players player-1">
             <p class="mat-body-1">Player 1</p>
         </div>
         
@@ -41,7 +54,7 @@
 
         </div>
         
-        <div class="players player-two">
+        <div class="players player-2">
             <p class="mat-body-2">Player 2</p>
         </div>
         

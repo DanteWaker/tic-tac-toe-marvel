@@ -8,34 +8,50 @@
         justify-content: space-between;
 
         .players {
-
+            background-color: rgb(27, 116, 189);
+            border: 1px solid black;
+            border-radius: 2px;
             .mat-body-1, .mat-body-2 {
                 font-weight: 700;
-                margin: 0 0 10px 0;
+                margin: 10px;
+                font-size: 40px;
             }
         }
 
         
-        .player-one {
+        .player-1 { 
             margin-left: 60px;
             color: rgb(7, 245, 7);
         }
 
-        .player-two {
+        .player-2 {
             margin-right: 60px;
             color: rgb(247, 47, 47);
         }
 
         .gamefield {
             display: flex;
-            align-items: center;
+            float: left;
             max-width: 300px;
             max-height: 300px;
-            .subfield{
-                cursor: pointer;
-                height: 100px;
-                width: 100px;
-                border: 3px solid #fff;
+            .row {
+                margin: 0;
+
+                .subfield{
+                    cursor: pointer;
+                    height: 100px;
+                    width: 100px;
+                    border: 3px solid #fff;
+
+                    &.player-one {
+                        background-color: rgb(7, 245, 7);
+                    }
+
+                    &.player-two {
+                        background-color: rgb(247, 47, 47);
+                    }
+            }
+            
             }
         }
     }
