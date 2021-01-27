@@ -4,30 +4,30 @@
         display: flex;
         flex-direction: row;
         width: 100%;
-        margin-top: 8%;
+        margin-top: 120px;
         align-items: center;
         justify-content: space-between;
 
         .players {
-            background-color: rgb(27, 116, 189);
-            border: 1px solid black;
-            border-radius: 2px;
+            background-color: #262525;
+            border: 1px solid  #a9a9a9;
+            border-radius: 10px;
             .mat-body-1, .mat-body-2 {
                 font-weight: 700;
                 margin: 10px;
-                font-size: 40px;
+                font-size: 20px;
             }
         }
 
         
         .player-1 { 
             margin-left: 60px;
-            color: rgb(7, 245, 7);
+            color: rgb(4, 169, 4);
         }
 
         .player-2 {
             margin-right: 60px;
-            color: rgb(247, 47, 47);
+            color: rgb(169, 9, 9);
         }
 
         .gamefield {

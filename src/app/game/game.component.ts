@@ -16,7 +16,7 @@ export class GameComponent implements OnInit {
 
   startGame(): void {
     this.game.gameStart();
-    const currentPlayer = 'Current turn: Player: ' + this.game.currentTurn;
+    const currentPlayer = 'Turno do Jogador ' + this.game.currentTurn;
     const information= document.querySelector('.current-status');
     information.innerHTML = currentPlayer;
   }
@@ -31,21 +31,21 @@ export class GameComponent implements OnInit {
     await this.game.checkGameEndWinner().then((end: boolean) => {
       if (this.game.gameStatus === 0 && end) {
         const information = document.querySelector('.current-status');
-        information.innerHTML = "The winner is player " + this.game.currentTurn;
+        information.innerHTML = "O jogador " + this.game.currentTurn + " ganhou!";
       }
     });
 
     await this.game.checkGameEndFull().then((end: boolean) => {
       if (this.game.gameStatus === 0 && end) {
         const information = document.querySelector('.current-status');
-        information.innerHTML = "No winner, draw";
+        information.innerHTML = "Deu velha. Joguem de novo!";
       }
     });
 
     this.game.changePlayer();
 
     if (this.game.gameStatus === 1) {
-      const currentPlayer = 'Current turn: Player: ' + this.game.currentTurn;
+      const currentPlayer = 'Turno do Jogador ' + this.game.currentTurn;
       const information = document.querySelector('.current-status');
       information.innerHTML = currentPlayer;
     }

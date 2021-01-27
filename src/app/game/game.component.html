@@ -10,16 +10,16 @@
 
     <div class="field">
         <p class="current-status mat-display-1">
-            Start the game on the button
+            Comece o jogo clicando no botão
         </p>
     </div>
 
-    <div class="fieldButton" style="width: 100%">
+    <div class="fieldButton" *ngIf="this.game.gameStatus === 0" style="width: 100%">
         <button 
         (click)="startGame()" 
         position="0" 
         mat-flat-button color="warn" 
-        class="start-game-button">Start Game Now!</button>
+        class="start-game-button">Comece agora!</button>
 
     <!--  
         <button 
@@ -35,7 +35,7 @@
     <div *ngIf="this.game.gameStatus === 1" class="gameboard">
 
         <div class="players player-1">
-            <p class="mat-body-1">Player 1</p>
+            <p class="mat-body-1">Jogador 1</p>
         </div>
         
         <div class="gamefield container-fluid">
@@ -85,7 +85,7 @@
         </div>
         
         <div class="players player-2">
-            <p class="mat-body-2">Player 2</p>
+            <p class="mat-body-2">Jogador 2</p>
         </div>
         
     </div>
