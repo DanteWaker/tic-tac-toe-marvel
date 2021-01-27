@@ -1,5 +1,6 @@
 .main-container {
     .gameboard {
+        margin: 0;
         display: flex;
         flex-direction: row;
         width: 100%;
@@ -30,6 +31,7 @@
         }
 
         .gamefield {
+            margin-right: 20px;
             display: flex;
             float: left;
             max-width: 300px;
@@ -41,7 +43,7 @@
                     cursor: pointer;
                     height: 100px;
                     width: 100px;
-                    border: 3px solid #fff;
+                    border: 3px solid rgb(70, 67, 67);
 
                     &.player-one {
                         background-color: rgb(7, 245, 7);
@@ -50,7 +52,36 @@
                     &.player-two {
                         background-color: rgb(247, 47, 47);
                     }
-            }
+                }
+
+                .col-0 {
+                    border-top: 0px;
+                    border-left: 0px;
+                }
+                .col-1 {
+                    border-left: 0px;
+                }
+                .col-2 {
+                    border-bottom: 0px;
+                    border-left: 0px;
+                }
+                .col-3 {
+                    border-top: 0px;
+                }
+                .col-5 {
+                    border-bottom: 0px;
+                }
+                .col-6 {
+                    border-top: 0px;
+                    border-right: 0px;
+                }
+                .col-7 {
+                    border-right: 0px;
+                }
+                .col-8 {
+                    border-bottom: 0px;
+                    border-right: 0px;
+                }
             
             }
         }

@@ -8,34 +8,13 @@ export class Gamelogic {
 
     gameStatus: Status;
 
-    winSituationsOne: Array<Array<number>> = [
-        [1, 1, 1, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 1, 1, 1, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 1, 1, 1],
-        [1, 0, 0, 1, 0, 0, 1, 0, 0],
-        [0, 1, 0, 0, 1, 0, 0, 1, 0],
-        [0, 0, 1, 0, 0, 1, 0, 0, 1],
-        [1, 0, 0, 0, 1, 0, 0, 0, 1],
-        [0, 0, 1, 0, 1, 0, 1, 0, 0]  
-    ];
-
-    winSituationsTwo: Array<Array<number>> = [
-        [2, 2, 2, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 2, 2, 2, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 2, 2, 2],
-        [2, 0, 0, 2, 0, 0, 2, 0, 0],
-        [0, 2, 0, 0, 2, 0, 0, 2, 0],
-        [0, 0, 2, 0, 0, 2, 0, 0, 2],
-        [2, 0, 0, 0, 2, 0, 0, 0, 2],
-        [0, 0, 2, 0, 2, 0, 2, 0, 0]  
-    ];
 
     public constructor() {
 
         this.gameStatus = Status.STOP;
         this.gameField = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     }
-
+    
     gameStart(): void {
         this.gameField = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         this.currentTurn = this.randomPlayerStart();
@@ -48,6 +27,7 @@ export class Gamelogic {
 
     setField(position: number, value: number): void {
         this.gameField[position] = value;
+        console.log(this.gameField);
     }
 
     getPlayerColorClass(): string {
@@ -63,34 +43,40 @@ export class Gamelogic {
         return Array.isArray(a) && Array.isArray(b) && a.length === b.length && a.every((value, index) => value ===b [index]);
     }
 
-    async checkGameEndWinner(): Promise<boolean> {
-        let isWinner = false;
+    async checkGameEndWinner(): Promise<boolean> {   
 
-        const checkarray = (this.currentTurn === 1) ? this.winSituationsOne : this.winSituationsTwo;
-
-        const currentarray = [];
-
-        this.gameField.forEach((subfield, index) => {
-            if ( subfield !== this.currentTurn) {
-                currentarray[index] = 0;
-            } else {
-                currentarray[index] = subfield;
-            }
-        });
-
-        checkarray.forEach( (checkfield, checkindex) => {
-            if (this.arrayEquals(checkfield, currentarray)) {
-                isWinner = true;
-
-            }
-        });
-
-
-        if (isWinner) {
+        if((this.gameField[0] !== 0 && this.gameField[1] !== 0 && this.gameField[2] !== 0) &&
+        (this.gameField[0] === this.gameField[1] && this.gameField[1] === this.gameField[2])) {
             this.gameEnd();
-            return true;
-        } else {
-            return false;
+            return true
+        } else if ((this.gameField[3] !== 0 && this.gameField[4] !== 0 && this.gameField[5] !== 0) &&
+        (this.gameField[3] === this.gameField[4] && this.gameField[4] === this.gameField[5])) {
+            this.gameEnd();
+            return true
+        } else if ((this.gameField[6] !== 0 && this.gameField[7] !== 0 && this.gameField[8] !== 0) &&
+        (this.gameField[6] === this.gameField[7] && this.gameField[7] === this.gameField[8])) {
+            this.gameEnd();
+            return true
+        } else if ((this.gameField[0] !== 0 && this.gameField[3] !== 0 && this.gameField[6] !== 0) &&
+        (this.gameField[0] === this.gameField[3] && this.gameField[3] === this.gameField[6])) {
+            this.gameEnd();
+            return true
+        } else if ((this.gameField[1] !== 0 && this.gameField[4] !== 0 && this.gameField[7] !== 0) &&
+        (this.gameField[1] === this.gameField[4] && this.gameField[4] === this.gameField[7])) {
+            this.gameEnd();
+            return true
+        } else if ((this.gameField[2] !== 0 && this.gameField[5] !== 0 && this.gameField[8] !== 0) &&
+        (this.gameField[2] === this.gameField[5] && this.gameField[5] === this.gameField[8])) {
+            this.gameEnd();
+            return true
+        } else if ((this.gameField[0] !== 0 && this.gameField[4] !== 0 && this.gameField[8] !== 0) &&
+        (this.gameField[0] === this.gameField[4] && this.gameField[4] === this.gameField[8])) {
+            this.gameEnd();
+            return true
+        } else if ((this.gameField[2] !== 0 && this.gameField[4] !== 0 && this.gameField[6] !== 0) &&
+        (this.gameField[2] === this.gameField[4] && this.gameField[4] === this.gameField[6])) {
+            this.gameEnd();
+            return true
         }
     }
 
@@ -111,6 +97,5 @@ export class Gamelogic {
         } else {
             return false;
         }
-    }
-    
+    }   
 }

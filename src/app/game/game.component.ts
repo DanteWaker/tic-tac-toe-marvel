@@ -26,8 +26,6 @@ export class GameComponent implements OnInit {
       const position = subfield.currentTarget.getAttribute('position');
       console.log(position);
       this.game.setField(position, this.game.currentTurn);
-      const color = this.game.getPlayerColorClass();
-      subfield.currentTarget.classList.add(color);
     }
 
     await this.game.checkGameEndWinner().then((end: boolean) => {
