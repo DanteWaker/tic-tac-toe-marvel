@@ -112,10 +112,5 @@ export class Gamelogic {
             return false;
         }
     }
-
-    gameEnd(): void {
-        this.gameStatus = Status.STOP;
-    }
-
     
 }
