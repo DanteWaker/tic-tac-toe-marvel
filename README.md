@@ -1,5 +1,7 @@
 # TicTacToeMarvel
 
+Use `npm install node` in main folder for run this project on your pc;
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.1.
 
 ## Development server
