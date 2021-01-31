@@ -1,6 +1,14 @@
-# TicTacToeMarvel
-
+#Comments
 Use `npm install node` in main folder for run this project on your pc;
+
+This project don't complete, 
+
+
+This project is not complete, I have not yet managed to implement the marvel API to show the heroes thumb.
+
+Besides said, a bug occurs when you win in the last round, it is giving as a "tie".
+
+# TicTacToeMarvel
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.1.
 
